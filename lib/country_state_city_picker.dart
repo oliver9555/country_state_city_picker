@@ -147,48 +147,98 @@ class _SelectStateState extends State<SelectState> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _country.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Row(
-                children: [
-                  Text(
-                    dropDownStringItem,
-                    style: widget.style,
-                  )
-                ],
+        Container(
+          padding: EdgeInsets.only(left: 10.0, right: 5.0),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              // color: Colors.amber,
+              borderRadius: BorderRadius.circular(10)),
+          child: DropdownButtonFormField<String>(
+            dropdownColor: widget.dropdownColor,
+            isExpanded: true,
+            items: _country.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Row(
+                  children: [
+                    Text(
+                      dropDownStringItem,
+                      style: widget.style,
+                    )
+                  ],
+                ),
+              );
+            }).toList(),
+            decoration: const InputDecoration(
+              hintStyle: TextStyle(
+                color: Colors.grey,
               ),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedCountry(value!),
-          value: _selectedCountry,
+              border: InputBorder.none,
+
+              // border: OutlineInputBorder(),
+            ),
+            onChanged: (value) => _onSelectedCountry(value!),
+            value: _selectedCountry,
+          ),
         ),
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _states.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Text(dropDownStringItem, style: widget.style),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedState(value!),
-          value: _selectedState,
+        SizedBox(
+          height: 10.0,
         ),
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _cities.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Text(dropDownStringItem, style: widget.style),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedCity(value!),
-          value: _selectedCity,
+        Container(
+          padding: EdgeInsets.only(left: 10.0, right: 5.0),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              // color: Colors.amber,
+              borderRadius: BorderRadius.circular(10)),
+          child: DropdownButtonFormField<String>(
+            dropdownColor: widget.dropdownColor,
+            isExpanded: true,
+            items: _states.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Text(dropDownStringItem, style: widget.style),
+              );
+            }).toList(),
+            decoration: const InputDecoration(
+              hintStyle: TextStyle(
+                color: Colors.grey,
+              ),
+              border: InputBorder.none,
+              // border: OutlineInputBorder(),
+            ),
+            onChanged: (value) => _onSelectedState(value!),
+            value: _selectedState,
+          ),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10.0, right: 5.0),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              // color: Colors.amber,
+              borderRadius: BorderRadius.circular(10)),
+          child: DropdownButtonFormField<String>(
+            dropdownColor: widget.dropdownColor,
+            isExpanded: true,
+            items: _cities.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Text(dropDownStringItem, style: widget.style),
+              );
+            }).toList(),
+            decoration: const InputDecoration(
+              hintStyle: TextStyle(
+                color: Colors.grey,
+              ),
+              border: InputBorder.none,
+
+              // border: OutlineInputBorder(),
+            ),
+            onChanged: (value) => _onSelectedCity(value!),
+            value: _selectedCity,
+          ),
         ),
         SizedBox(
           height: 10.0,
